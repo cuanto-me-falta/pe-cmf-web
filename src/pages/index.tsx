@@ -1,8 +1,9 @@
 import React from "react";
+import MyHeader from "../components/Myheader";
 const index = () => {
   return (
     <div>
-      <h1 className="text-xs">HELLO WORLD</h1>
+      <MyHeader />
     </div>
   );
 };
