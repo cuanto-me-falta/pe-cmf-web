@@ -7,8 +7,8 @@ import Navbarmobile from "./Navbarmobile";
 const Myheader = () => {
   const { modal, settingModal } = useModal();
   return (
-    <div className="flex items-center text-white justify-between bg-gradient-to-b from-cmf_blue h-28 p-10">
-      <h1 className="text-7xl">CMF</h1>
+    <div className="flex items-center text-white justify-between bg-cmf_blue h-28 p-10">
+      <h1 className="text-7xl tex">CMF</h1>
       <Navbar></Navbar>
       <FaBars className="md:hidden" size={40} onClick={settingModal} />
       <Navbarmobile modal={modal} settingModal={settingModal} />
