@@ -3,9 +3,10 @@ import DragArea from "../components/DragArea";
 import MyHeader from "../components/Myheader";
 import Head from "next/head";
 import useDrop from "../hooks/useDrop";
-import Notasinfo from "../components/Notasinfo";
+import Notasinfo from "../components/Notesinfo";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import BlueDegrade from "../components/blueDegrade";
 
 const index = () => {
   let { file, dropFile } = useDrop();

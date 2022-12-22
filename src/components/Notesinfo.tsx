@@ -1,7 +1,10 @@
 import React, { FC } from "react";
-import { notasInfo } from "../types/types";
+import { notesInfo } from "../types/types";
+import Acordion from "./Acordion";
+import BlueDegrade from "./blueDegrade";
 
-const Notasinfo: FC<notasInfo> = ({ file }) => {
+const Notesinfo: FC<notesInfo> = ({ file }) => {
+  const progressPercentage = 80;
   const cardstest = {
     subjects: [
       {
@@ -11,6 +14,7 @@ const Notasinfo: FC<notasInfo> = ({ file }) => {
         ordinal_year: 1,
         grade: 19,
         credit: 4.0,
+        status: "aprobado",
       },
       {
         id: 2,
@@ -19,6 +23,7 @@ const Notasinfo: FC<notasInfo> = ({ file }) => {
         ordinal_year: 1,
         grade: 19,
         credit: 4.0,
+        status: "aprobado",
       },
       {
         id: 3,
@@ -27,6 +32,7 @@ const Notasinfo: FC<notasInfo> = ({ file }) => {
         ordinal_year: 2,
         grade: 19,
         credit: 4.0,
+        status: "desaprobado",
       },
     ],
     total_passed_credits: 210.0,
@@ -41,23 +47,14 @@ const Notasinfo: FC<notasInfo> = ({ file }) => {
   };
 
   return (
-    <div className={`${file ? "block" : "hidden"}`}>
-      <div>
-        <p>{cardstest.student.name}</p> <p>{cardstest.student.grade}</p>
-        <p>{cardstest.student.school}</p>
-      </div>
-      <div>
-        {cardstest?.subjects.map((course) => (
-          <div key={course.id}>
-            <p>{course.id}</p> <p>{course.name}</p>
-            <p>{course.semester}</p>
-            <p>{course.ordinal_year}</p> <p>{course.grade}</p>
-            <p>{course.credit}</p>
-          </div>
-        ))}
-      </div>
+    <div className={`${file ? "hidden" : "hidden"}`}>
+      {/* <div className="text-center -z-5 grid place-items-center top-28 h-52 w-full absolute bg-gradient-to-b from-cmf_blue to-transparent"></div> */}
+      <BlueDegrade />
+      <Acordion
+        progressPercentage={progressPercentage}
+        subjects={cardstest.subjects}
+      />
     </div>
   );
 };
-
-export default Notasinfo;
+export default Notesinfo;

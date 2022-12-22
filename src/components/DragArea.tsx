@@ -28,6 +28,7 @@ const DragArea: FC<dragdropArea> = ({ file, dropFile }) => {
         </FileUploader>
         <button onClick={() => mutate({ file })}>Apretameeeee</button>
       </div>
+      <div>{JSON.stringify(data)}</div>
     </div>
   );
 };
