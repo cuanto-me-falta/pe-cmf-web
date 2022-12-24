@@ -3,12 +3,14 @@ export interface navbarmodal {
   settingModal: () => void;
 }
 export interface dragdropArea {
-  file: any;
-  dropFile: (file: any) => void;
+  file: File | null;
+  dropFile: (file: File) => void;
+  setNoteData: (data: notes) => void;
+  noteData: notes | null;
 }
 
 export interface notesInfo {
-  file: any;
+  notes: notes;
 }
 
 export interface notes {

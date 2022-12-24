@@ -13,7 +13,7 @@ const NoteCard: FC<NoteCard> = ({
   return (
     <div
       className={`rounded-md text-center text-white w-48 ${
-        status === "aprobado" ? "bg-green-600" : "bg-red-500"
+        status === "Aprobado" ? "bg-green-600" : "bg-red-500"
       }`}
     >
       <p>Nombre:{name}</p>

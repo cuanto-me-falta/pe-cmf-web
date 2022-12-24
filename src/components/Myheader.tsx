@@ -7,7 +7,7 @@ import Navbarmobile from "./Navbarmobile";
 const Myheader = () => {
   const { modal, settingModal } = useModal();
   return (
-    <div className="flex items-center text-white justify-between bg-cmf_blue h-28 p-10">
+    <div className="sticky top-0 z-50 flex items-center text-white justify-between bg-cmf_blue h-28 p-10">
       <h1 className="text-7xl tex">CMF</h1>
       <Navbar></Navbar>
       <FaBars className="md:hidden" size={40} onClick={settingModal} />

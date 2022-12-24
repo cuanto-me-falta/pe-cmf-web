@@ -20,7 +20,7 @@ const Acordion: FC<accordion> = ({ subjects, progressPercentage }) => {
       <Arrow />
       {/* Content */}
       <div className="max-h-0 peer-checked:max-h-96 bg-transparent overflow-hidden transition-all duration-500">
-        <div className="grid grid-cols-3 gap-5 place-items-center p-4">
+        <div className="grid grid-cols-6 gap-5 place-items-center p-4">
           {subjects.map((course) => (
             <NoteCard
               key={course.id}
