@@ -1,17 +1,26 @@
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import { NoteCard, notesInfo } from "../types/types";
 import Acordion from "./Acordion";
 import BlueDegrade from "./BlueDegrade";
 import { RiArrowUpSLine } from "react-icons/ri";
-export interface reduceNotes {
-  "1": NoteCard[];
-  "2": NoteCard[];
-  "3": NoteCard[];
-  "4": NoteCard[];
-  "5": NoteCard[];
-}
+import { animateScroll as scroll } from "react-scroll";
+import { scroller } from "react-scroll";
 
 const Notesinfo: FC<notesInfo> = ({ notes }) => {
+  const years = ["1er", "2do", "3ero", "4to", "5to", "6to", "7mo"];
+  useEffect(() => {
+    // scroll.scrollTo("datos");
+    // window.scrollTo(0, 700);
+    //550
+    if (window.innerWidth > 550) {
+      scroller.scrollTo("linkdatos", { duration: 50, offset: -80 });
+    } else {
+      scroller.scrollTo("linkdatos", { duration: 50, offset: -120 });
+    }
+  }, []);
+  const scrollToTop = () => {
+    scroll.scrollToTop();
+  };
   const progressPercentage = 80;
   const cardstest = {
     subjects: [
@@ -72,7 +81,10 @@ const Notesinfo: FC<notesInfo> = ({ notes }) => {
       {/* <div className="text-center -z-5 grid place-items-center top-28 h-52 w-full absolute bg-gradient-to-b from-cmf_blue to-transparent"></div> */}
       <BlueDegrade />
 
-      <div className="h-screen grid  place-content-center text-center">
+      <div
+        className="h-screen grid  place-content-center text-center"
+        id="datos"
+      >
         <h1 className="text-3xl"> Bienvenido {notes.student.name}</h1>
         <p>El grado de estudio es: {notes.student.grade}</p>
         <p>La escuela en la que se encuentra es: {notes.student.school}</p>
@@ -84,19 +96,24 @@ const Notesinfo: FC<notesInfo> = ({ notes }) => {
           {notes.card_date}
         </p>
       </div>
-      <div className="flex justify-center">
-        <div className="flex flex-col items-center w-36 cursor-pointer">
+      <div className="flex justify-center" id="linkdatos">
+        <div
+          className="flex flex-col items-center w-36 cursor-pointer"
+          onClick={scrollToTop}
+        >
           <RiArrowUpSLine size={20} />
           <p className="text-center">Desliza arriba para ver tus datos</p>
         </div>
       </div>
-      {notesObject.map((grade, index) => (
-        <Acordion subjects={grade} progressPercentage={80} />
-      ))}
-      <Acordion
-        progressPercentage={progressPercentage}
-        subjects={notes.subjects}
-      />
+      <div className="mb-5">
+        {notesObject.map((grade, index) => (
+          <Acordion subjects={grade} progressPercentage={80} />
+        ))}
+        <Acordion
+          progressPercentage={progressPercentage}
+          subjects={notes.subjects}
+        />
+      </div>
     </div>
   );
 };

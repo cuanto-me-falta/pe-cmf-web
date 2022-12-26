@@ -28,16 +28,16 @@ const DragArea: FC<dragdropArea> = ({
         <FileUploader
           hoverTitle={"dropealo aca"}
           types={fileTypes}
-          handleChange={(file: any) => dropFile(file)}
-          // handleChange={(file: any) => {
-          //   return mutate({ file });
-          // }}
+          //handleChange={(file: File) => dropFile(file)}
+          handleChange={(file: File) => {
+            return mutate({ file });
+          }}
         >
           <div className="h-full w-full text-4xl text-white flex flex-col items-center justify-center gap-52 border-4 border-dotted border-cmf_blue">
             <p className="text-cmf_blue">Sube tu libreta</p>
           </div>
         </FileUploader>
-        <button onClick={() => mutate({ file })}>Apretameeeee</button>
+        {/* <button onClick={() => mutate({ file })}>Apretameeeee</button> */}
       </div>
     </div>
   );
