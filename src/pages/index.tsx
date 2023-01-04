@@ -8,7 +8,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { notes } from "../types/types";
 
-const index = () => {
+const Index = () => {
   let { file, dropFile } = useDrop();
   const [noteData, setNoteData] = useState<notes | null>(null);
   const setData = (data: notes | null) => {
@@ -39,4 +39,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;
