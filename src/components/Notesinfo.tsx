@@ -107,7 +107,7 @@ const Notesinfo: FC<notesInfo> = ({ notes }) => {
       </div>
       <div className="mb-5">
         {notesObject.map((grade, index) => (
-          <Acordion subjects={grade} progressPercentage={80} />
+          <Acordion key={index} subjects={grade} progressPercentage={80} />
         ))}
         <Acordion
           progressPercentage={progressPercentage}
